@@ -1,3 +1,3 @@
 # SpamFilter
-in collaboration with my colleague Jan S./
-basic SPAM filter to control email communication
+Created in collaboration with my colleague Jan S.
+The basic SPAM filter that controls email communication.
