@@ -1,3 +1,4 @@
+import email
 import os
  
  
@@ -7,10 +8,15 @@ class Corpus:
  
     def emails(self):
         email_names = os.listdir(self.email_directory)
+        for name in email_names:
+            file = self.email_directory+'/'+name
+            if not name[0] == '!':
+                with open(file, 'rt', encoding='utf-8') as f:
+                    yield [name, f.read()]
  
-        for fname in email_names:
-            if fname[0] == '!':
-                pass
-            else:
-                with open(self.email_directory + "/" + fname, "rt", encoding="utf-8") as f:
-                    yield(fname, f.read())
+        return email_names
+ 
+ 
+if __name__ == '__main__':
+    corpus = Corpus("./1")
+    print(corpus.emails())
